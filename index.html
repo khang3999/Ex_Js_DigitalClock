@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="public/css/styles.css">
+
+    <style>
+        .show-time{
+            position: relative;
+            border: 3px solid chocolate;
+            width: 320px;
+            min-height: 300px;
+            color: #111;
+            font-size: 65px;
+            left: 520px;
+            margin-top: 50px;
+            text-align: center;
+            border-radius: 30px;
+            background: url(/public/image/photo-1565204310681-74dd89a559cb.avif);
+            padding-top: 60px;
+        }
+        .show-time::before{
+            content: '';
+            position: absolute;
+            left: 101%;
+            top: 70px;
+            height: 160px;
+            width: 500px;
+            background-color: #333;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+            display: block;
+        }
+        .show-time::after{
+            content: '';
+            position: absolute;
+            left: -160%;
+            top: 70px;
+            height: 160px;
+            width: 500px;
+            background-color: #333;
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            display: block;
+        }
+        .circle{
+            display: inline-block;
+            height: 20px;
+            width: 20px;
+            background-color: #fff;
+            position: relative;
+            top: -160px;
+            border-radius: 50%;
+            left: 100px;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="show-time">
+        
+    </div>
+    <div class="circle">
+    </div>
+    <div class="circle">
+    </div>
+    <div class="circle">
+    </div>
+    <div class="circle">
+    </div>
+    <div class="circle">
+    </div>
+
+    <script>    
+        const showTime = document.querySelector('.show-time');
+        let a = setTimeout(function setCurrentTime() {
+            let x = new Date();
+            showTime.textContent = x.getHours() +':'+ x.getMinutes() +':'+ x.getSeconds();
+            a = setTimeout(setCurrentTime, 1000);
+        }, 1000);
+    </script>
+</body>
+</html>
